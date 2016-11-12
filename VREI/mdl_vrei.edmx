@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbo_vreiModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="300" />
+          <Property Name="Description" Type="longtext" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="Publish" Type="bool" />
+          <Property Name="Facilitator" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+          <Property Name="DateTimeCreated" Type="datetime" Precision="0" />
+          <Property Name="LastModifiedBy" Type="varchar" MaxLength="45" />
+          <Property Name="LastModifiedDateTime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="activitypic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityId" Type="int" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="200" />
+          <Property Name="ImageDescription" Type="varchar" MaxLength="200" />
+          <Property Name="EditedBy" Type="varchar" MaxLength="45" />
+          <Property Name="DateTimeEdited" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="homepageslider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="150" />
+          <Property Name="CaptionHeading" Type="varchar" MaxLength="200" />
+          <Property Name="CaptionDesc" Type="varchar" MaxLength="400" />
+          <Property Name="EditedBy" Type="varchar" MaxLength="45" />
+          <Property Name="DateTimeEdited" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="pagecontent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PageTitle" Type="varchar" MaxLength="45" />
+          <Property Name="PageUrl" Type="varchar" MaxLength="45" />
+          <Property Name="BannerUrl" Type="varchar" MaxLength="150" />
+          <Property Name="PageText" Type="longtext" />
+          <Property Name="EditedBy" Type="varchar" MaxLength="45" />
+          <Property Name="DateTimeEdited" Type="datetime" Precision="0" />
+        </EntityType>
+        <Association Name="fk_ActivityPic_Activity">
+          <End Role="activity" Type="Self.activity" Multiplicity="0..1" />
+          <End Role="activitypic" Type="Self.activitypic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="activitypic">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbo_vreiModelStoreContainer">
+          <EntitySet Name="activity" EntityType="Self.activity" Schema="dbo_vrei" store:Type="Tables" />
+          <EntitySet Name="activitypic" EntityType="Self.activitypic" Schema="dbo_vrei" store:Type="Tables" />
+          <EntitySet Name="homepageslider" EntityType="Self.homepageslider" Schema="dbo_vrei" store:Type="Tables" />
+          <EntitySet Name="pagecontent" EntityType="Self.pagecontent" Schema="dbo_vrei" store:Type="Tables" />
+          <AssociationSet Name="fk_ActivityPic_Activity" Association="Self.fk_ActivityPic_Activity">
+            <End Role="activity" EntitySet="activity" />
+            <End Role="activitypic" EntitySet="activitypic" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbo_vreiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="FromDate" Type="DateTime" />
+          <Property Name="ToDate" Type="DateTime" />
+          <Property Name="Publish" Type="Boolean" />
+          <Property Name="Facilitator" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimeCreated" Type="DateTime" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDateTime" Type="DateTime" />
+          <NavigationProperty Name="activitypics" Relationship="Self.fk_ActivityPic_Activity" FromRole="activity" ToRole="activitypic" />
+        </EntityType>
+        <EntityType Name="activitypic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityId" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ImageDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="activity" Relationship="Self.fk_ActivityPic_Activity" FromRole="activitypic" ToRole="activity" />
+          <Property Name="EditedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimeEdited" Type="DateTime" />
+        </EntityType>
+        <Association Name="fk_ActivityPic_Activity">
+          <End Role="activity" Type="Self.activity" Multiplicity="0..1" />
+          <End Role="activitypic" Type="Self.activitypic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="activitypic">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbo_vreiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="activities" EntityType="Self.activity" />
+          <EntitySet Name="activitypics" EntityType="Self.activitypic" />
+          <AssociationSet Name="fk_ActivityPic_Activity" Association="Self.fk_ActivityPic_Activity">
+            <End Role="activity" EntitySet="activities" />
+            <End Role="activitypic" EntitySet="activitypics" />
+          </AssociationSet>
+          <EntitySet Name="homepagesliders" EntityType="dbo_vreiModel.homepageslider" />
+          <EntitySet Name="pagecontents" EntityType="dbo_vreiModel.pagecontent" />
+        </EntityContainer>
+        <EntityType Name="homepageslider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CaptionHeading" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CaptionDesc" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="EditedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimeEdited" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="pagecontent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PageTitle" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PageUrl" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="BannerUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PageText" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="EditedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimeEdited" Type="DateTime" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbo_vreiModelStoreContainer" CdmEntityContainer="dbo_vreiEntities">
+          <EntitySetMapping Name="activities">
+            <EntityTypeMapping TypeName="dbo_vreiModel.activity">
+              <MappingFragment StoreEntitySet="activity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="Publish" ColumnName="Publish" />
+                <ScalarProperty Name="Facilitator" ColumnName="Facilitator" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateTimeCreated" ColumnName="DateTimeCreated" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedDateTime" ColumnName="LastModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="activitypics">
+            <EntityTypeMapping TypeName="dbo_vreiModel.activitypic">
+              <MappingFragment StoreEntitySet="activitypic">
+                <ScalarProperty Name="DateTimeEdited" ColumnName="DateTimeEdited" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ImageDescription" ColumnName="ImageDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="homepagesliders">
+            <EntityTypeMapping TypeName="dbo_vreiModel.homepageslider">
+              <MappingFragment StoreEntitySet="homepageslider">
+                <ScalarProperty Name="DateTimeEdited" ColumnName="DateTimeEdited" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="CaptionDesc" ColumnName="CaptionDesc" />
+                <ScalarProperty Name="CaptionHeading" ColumnName="CaptionHeading" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pagecontents">
+            <EntityTypeMapping TypeName="dbo_vreiModel.pagecontent">
+              <MappingFragment StoreEntitySet="pagecontent">
+                <ScalarProperty Name="DateTimeEdited" ColumnName="DateTimeEdited" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="PageText" ColumnName="PageText" />
+                <ScalarProperty Name="BannerUrl" ColumnName="BannerUrl" />
+                <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

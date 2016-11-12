@@ -1,0 +1,387 @@
+﻿/*Form Input*/
+select, select.form-control {
+    border: 1px solid silver;
+    background-color: #FFF;
+}
+
+textarea, textarea.form-control, input.form-control, input[type="text"], input[type="password"], input[type="email"], input[type="number"], .form-control[type="text"], .form-control[type="password"], .form-control[type="email"], .form-control[type="tel"], .form-control[contenteditable] {
+    border: 1px solid silver;
+    background-color: #FFF;
+}
+
+.form-control, input {
+    border-width: 2px;
+    box-shadow: none;
+    text-align: left;
+}
+
+
+.form-date {
+    max-width: 50px;
+}
+
+
+/*Nav Features*/
+.site-brand {
+    color: #163068;
+}
+
+.navbar-brand {
+    padding: 5px 10px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #163068;
+}
+
+.dropdown-menu > li > a {
+    color: #163068;
+}
+
+.navbar-wrapper > .container {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.navbar-default .navbar-toggle {
+    border: 2px solid #163068;
+    background-color: none;
+}
+
+    .navbar-default .navbar-toggle:hover {
+        background-color: silver;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #163068;
+    }
+
+.navbar {
+    position: relative;
+    min-height: 60px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+    border-bottom: 2px solid #163068;
+}
+
+body {
+    /*padding-top: 65px;*/
+    /*font-family: 'Roboto',arial,sans-serif;*/
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+    body a {
+        color: #163068;
+    }
+
+/*Body Text*/
+
+h1, h2 {
+    color: #163068;
+    text-align: center;
+    /*font-family: 'Roboto Slab',palatino,serif;*/
+    font-family: "industrial736_btroman", Garamond, "Hoefler Text", Times New Roman, Times, serif;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: -.2px;
+    line-height: 38px;
+}
+
+h3, h4 {
+    font-family: "industrial736_btroman", Garamond, "Hoefler Text", Times New Roman, Times, serif;
+    color: #163068;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.page-text-container {
+    min-height: 200px;
+}
+
+.page-text {
+    font-family: 'Tangerine', serif;
+    color: #232323;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 25px;
+    font-weight: 100;
+}
+/*Body*/
+
+.body-content {
+    min-height: 520px;
+    /*padding-left: 15px;
+    padding-right: 15px;*/
+}
+
+
+.page-banner {
+    min-height: 300px;
+}
+
+
+.container-fluid {
+    padding: 0px;
+}
+
+.fancy-header {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-family: 'Edwardian Script ITC';
+}
+
+/*Web form validation*/
+.FormError {
+    color: #cc2c2c;
+}
+
+
+.pop-help {
+    color: silver;
+}
+
+/*Activity Photos*/
+.img-col-proj {
+    text-align: center;
+    margin-top: 15px;
+}
+    .img-col-proj > img {
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 295px;
+    }
+
+.img-uploaded {
+    max-height: 295px;
+}
+
+/*Update info*/
+.PleaseWait {
+    height: 32px;
+    width: 100%;
+    background-image: url(../Images/PleaseWait.gif);
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    line-height: 32px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 400px;
+}
+
+.input-well {
+    max-width: 450px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+
+/*Animate Features*/
+.glideLeft {
+    visibility: visible;
+    animation-name: fadeInLeft;
+    animation-duration: 2s;
+}
+
+.glideRight {
+    visibility: visible;
+    animation-name: fadeInRight;
+    animation-duration: 2s;
+}
+
+/*Footer Design*/
+
+footer {
+    margin-top: 0px;
+    padding-top: 10px;
+    background-color: #163068;
+    min-height: 100px;
+    text-align: center;
+    color: #FFF;
+    font-family: "industrial736_btroman", Garamond, "Hoefler Text", Times New Roman, Times, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+    footer a {
+        color: #fff;
+    }
+
+        footer a:hover, footer a:focus {
+            color: #cc2c2c;
+            text-decoration: none;
+        }
+
+.social-media {
+    text-align: center;
+    color: silver;
+}
+
+    .social-media img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .social-media > p {
+        font-size: 20px;
+        font-family: "industrial736_btroman", Garamond, "Hoefler Text", Times New Roman, Times, serif;
+        margin: 10px 0px;
+    }
+
+    .social-media > hr {
+        border: 1px dotted white;
+        margin: 10px 5px 10px 5px;
+    }
+
+    .social-media > a:hover {
+        visibility: visible;
+        animation-name: fadeIn;
+    }
+
+.img-centralise {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*Carousel Caption*/
+
+.carousel-caption {
+    background-color: white;
+    opacity: 0.8;
+    position: absolute;
+    left: 0%;
+    /*right: 60%;*/
+    bottom: 0%;
+    z-index: 10;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: none;
+}
+
+    .carousel-caption > h4 {
+        color: #ff0000;
+        font-size: 20px;
+    }
+
+    .carousel-caption > p {
+        color: blue;
+        font-size: 14px;
+    }
+
+.carousel-height, .page-banner {
+    min-height: 200px;
+    min-width: 700px;
+}
+
+.owl-carousel-image {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.owl-carousel-col {
+    text-align: center;
+}
+
+/*MANAGEMENT SPECIFIC*/
+.mgt-table {
+    font-size: 13px;
+    font-weight: 100;
+}
+
+    .mgt-table th a {
+        color: black;
+    }
+
+.smallfont {
+    font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        /*font-size: 18px;*/
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .page-text {
+        font-size: 18px;
+    }
+
+    h1, h2 {
+        font-size: 30px;
+        line-height: 58px;
+    }
+
+    h3, h4 {
+        font-size: 20px;
+        line-height: 40px;
+    }
+
+
+    .frontend-Banner {
+        min-height: 300px;
+    }
+
+    .banner-text {
+        font-size: 35px;
+    }
+
+    .fancy-header {
+        font-size: 40px;
+    }
+
+
+    /*#163068ucing width of menu*/
+    .nav > li > a {
+        position: relative;
+        display: block;
+        padding: 10px 10px;
+    }
+
+    .carousel-caption {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+        .carousel-caption > h4 {
+            font-size: 28px;
+        }
+
+        .carousel-caption > p {
+            font-size: 18px;
+        }
+
+    .nav {
+        padding-top: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .navbar {
+        position: relative;
+        min-height: 90px;
+        margin-bottom: 0px;
+        border: 1px solid transparent;
+        border-bottom: 2px solid #163068;
+    }
+
+    .social-media > p {
+        font-size: 25px;
+    }
+}
